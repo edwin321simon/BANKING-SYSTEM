@@ -1,0 +1,50 @@
+class Banking():
+    def __init__(self, balance=0):
+        self.balance = balance
+    def deposit(self, amount):
+        if amount > 0:
+            self.balance += amount
+            print(f"Deposited: {amount}")
+        else:
+            print("Deposit a positive amount")
+
+    def withdraw(self, amount):
+        if amount > self.balance:
+            print("Insufficent balance")
+        elif amount <= 0:
+            print("Enter a Valid Amount")
+        else:
+            self.balance -= amount
+            print(f"Withdrawed : {amount}")
+
+    def check_balance(self):
+        if self.balance <= 0:
+            print("No balance available")
+        else:
+            print(f"Current Balance was:{self.balance}")
+
+def BS():
+    account = Banking()
+    while True:
+        print("\n OPTIONS")
+        print("\n 1) Deposit Amount")
+        print("\n 2) Check Balance")
+        print("\n 3) Withdraw Amount")
+        print("\n 4) Exit From Here")
+
+        choice=input("\n Enter the Option")
+            
+        if choice=='1':
+            amount = float(input("\nEnter the depositing Amount"))
+            account.deposit(amount)
+        elif choice=='2':
+            account.check_balance()
+        elif choice=='3':
+            amount=float(input("\nEnter the Wihtdrawal amount"))
+            account.withdraw(amount)
+        elif choice=='4':
+            print("\nExiting Banking System")
+            break
+        else:
+            print("\nInvalid aoption")
+BS()
